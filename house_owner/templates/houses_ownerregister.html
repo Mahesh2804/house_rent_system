@@ -1,0 +1,77 @@
+
+<head>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/form-elements.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+</head>
+
+<style>
+    * {
+margin: 0;
+}
+
+
+input{
+    width: 491px;
+    height: 56px;
+}
+
+select {
+    border-radius: 4px;
+    width: 378px;
+    height: 32px;
+}
+
+form.login-form{
+    height: 500px;
+}
+
+</style>
+
+    <a href="/houses/" style="padding-top: 30px; opacity: 60%; float: left; margin-left: 50px; ">
+        <img src="/static/images/home_icon.png" width="80px" alt="ABC">
+    </a>
+  
+    <div class="bground">
+    <div class="top-content">        	
+        <div class="inner-bg" style="background-image: url('/static/images/loginbackground_1.jpg'); background-size: cover; background-repeat: no-repeat;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 text">
+                        <h1 style="float: right;"><strong>Owner |</strong> Sign Up Form</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3 form-box">
+                        <div class="form-top"> <br>                       		
+                            <h3 style="color:whitesmoke;">Register in our site</h3>
+                            <p>Fill up your details:</p>
+                        </div>
+                        <div class="form-bottom">
+                            <form role="form" action="#" method="post" class="login-form">
+                                {% csrf_token %}            
+                                <div class="form-group">
+                                    {{form.as_p}}
+                                </div>
+                                <button type="submit" class="btn" value="Register">Register</button>
+                                <br><br>
+                            </form>
+                        </div>
+                        <div class="description">
+                            <p>
+                                Already registered? You can login <a href = "../houses_ownerlogin/"> here</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        
+
+
+

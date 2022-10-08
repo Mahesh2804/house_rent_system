@@ -1,0 +1,73 @@
+{% extends 'h_owner_home.html' %}
+
+{% block content %}
+<style>
+    hr.style-eight {
+    overflow: visible; /* For IE */
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+hr.style-eight:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: white;
+}
+
+</style>
+
+<br>
+<hr class="style-eight">
+<br>
+
+
+    <div style="text-align: center; margin-left: 25%;">
+        <table style="border: 1; width: 75%;">
+            <tr style="background-color: white; text-align: center;">
+                <th>Customer Name</th>
+                <th>House Type</th>
+                <th>Address</th>                
+                 
+                <th>Rent(Rs.)/month</th>               
+            </tr>            
+            
+            {% for order in orders %}
+            
+                <tr style="background-color: lightblue; text-align: center;">
+                    <td>{{order.customer_name}}</td>
+                    <td>{{order.house_type}}</td>
+                    <td>{{order.address}}</td>
+                    
+                    
+                                  
+                    <!--
+                    <td><img src=/{{house.image1.url}} alt="XXX"></td>
+                    <td><img src=/{{house.image2.url}}  width=80 height=80 alt="XXX"></td>
+                    <td><img src=/{{house.image3.url}}  width=80 height=80 alt="XXX"></td>
+                    -->
+                    
+                    <td>{{order.rent}}</td>
+                </tr>            
+            
+                {% empty %}
+                <h3 style="text-align: center;"><u>No Records Found...!!!</u></h3>
+              
+            {% endfor %}
+            
+        </table>            
+    </div> 
+
+    <br>    
+<hr class="style-eight">
+
+
+{% endblock %}
+
+
+
