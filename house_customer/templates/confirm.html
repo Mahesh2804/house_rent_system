@@ -1,0 +1,107 @@
+{% extends 'h_customer_home.html' %}
+
+{% block content %}
+    <style>
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            margin: auto;
+            text-align: center;
+            font-family: arial;
+            position: relative;
+            margin-left: 0px;
+            
+        }
+        
+        .price {
+            color: grey;
+            font-size: 22px;
+        }
+        
+        .card button {
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+        .card input[type=submit] {
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+        
+        
+
+        .card input[type=number] {
+            width: 100%;
+            display: inline-block;
+            outline: 0;
+            text-align: center;
+            border: solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+
+            }
+        .card button:hover {
+            opacity: 0.7;
+        }
+    </style>
+
+    
+    
+    <div style="padding-left: 10%; padding-right: 10%;">
+        <div class="card">
+            <!--<img src="/{{house.image1.url}}" alt="Image1" style="width:100%">-->
+            <h1 style="text-align: center;">ORDER COMPLETED</h1>
+            <table>
+                <tr>
+                    <td><p><strong>Name </strong></td>
+                    <td><p> {{order.customer_name}}</p></td>
+                </tr>
+                <tr>
+                    <td><p><strong>House Type </strong></td>
+                    <td><p> {{order.house_type}}</p> </td>
+                </tr>
+                <tr>
+                    <td><p><strong>Address </strong></td>
+                    <td><p> {{order.address}}</p></td>
+                </tr>
+                <tr>
+                    <td><p><strong>Area </strong></td>
+                    <td><p> {{order.area}} sq.mts</p></td>
+                </tr>
+                <tr>
+                    <td><p><strong>#Bedrooms </strong></td>
+                    <td><p> {{order.bedrooms}}</p></td>
+                </tr>
+                
+                
+                <tr>
+                    <td><p><strong>Owner </strong></td>
+                    <td><p> {{order.owner_name}}</p> </td>
+                </tr>
+                <tr>
+                    <td><p><strong>Owner Mobile </strong></td>
+                    <td><p> {{order.owner_mobile}}</p> </td>
+                </tr>
+                <tr>
+                    <td><p><strong>Rent </strong></td>
+                    <td><p> {{order.rent}} per month</p> </td>
+                </tr>
+            </table>
+        </div>
+        Go Back to<a href="../h_customer_home/" style="text-align: center;"> Home Page</a>
+    </div>
+    
+{% endblock %}
+

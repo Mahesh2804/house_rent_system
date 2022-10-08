@@ -1,0 +1,94 @@
+{% extends 'h_customer_home.html' %}
+
+{% block content %}
+<style>
+   .mydiv{
+       border-radius: 5px;
+       background-color: #f2f2f2;
+       padding: 20px;
+       margin-left: 30%;
+       margin-right: 30%;
+       
+   }
+   input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #e64a19;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #3ba83b;
+}
+
+  hr.style-eight {
+  overflow: visible; /* For IE */
+  padding: 0;
+  border: none;
+  border-top: medium double #333;
+  color: #333;
+  text-align: center;
+}
+hr.style-eight:after {
+  content: "§";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: white;
+}
+
+</style>
+
+<div style="text-align: center;">
+    <h2>SEARCH FOR HOUSES</h2> 
+</div>
+<div class="mydiv" style="text-align: centre;">
+    <form name="f" action="{% url 'h_customer_searchresults' %}" method="POST">
+        {% csrf_token %}
+
+        <!--
+        <select required name="category">
+            <option value="">Select Category</option>
+            <option>For Rent</option>
+            <option>For Sale</option>
+        </select><br>
+        -->
+        <select required name="type">
+            <option value="">Select Type</option>
+            <option>Apartment Flat</option>
+            <option>Bungalow</option>
+            <option>Villa</option>
+            <option>Duplex</option>
+            <option>Others</option>
+        </select><br>
+        <select required name="bedrooms">
+            <option value="">No.of Bedrooms</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </select><br>
+        <input type="text" name="city" placeholder="Enter City" required><br>
+        <input type="submit" value="Search">
+    </form>
+</div>
+
+<br>
+<hr class="style-eight">
+<br>
+{% endblock %}

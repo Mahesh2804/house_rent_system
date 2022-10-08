@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+Template Name: Miresa
+Author: <a href="https://www.os-templates.com/">OS Templates</a>
+Author URI: https://www.os-templates.com/
+Licence: Free to use under our free template licence terms
+Licence URI: https://www.os-templates.com/template-terms
+-->
+<html lang="en">
+<head>
+<title>Rental World </title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="/static/css/layout.css" rel="stylesheet" type="text/css" media="all">
+<link href="/static/css/framework.css" rel="stylesheet" type="text/css" media="all">
+<link href="/static/css/font-awesome.css" rel="stylesheet" type="text/css" media="all">
+
+<style>
+  hr.style-eight {
+  overflow: visible; /* For IE */
+  padding: 0;
+  border: none;
+  border-top: medium double #333;
+  color: #333;
+  text-align: center;
+}
+hr.style-eight:after {
+  content: "§";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: white;
+}
+</style>
+</head>
+<body id="top">
+ 
+<!-- Top Background Image Wrapper -->
+<div class="bgded overlay light" style="background-image:url('/static/images/pearltower.png');"> 
+  <div class="wrapper row">
+    <header id="header" class="hoc clear"> 
+      <div id="logo" class="fl_left">
+        <h1><a href="../h_customer_home/">HOUSES | Customer</a></h1>
+      </div>
+      <nav id="mainav" class="fl_right">
+        <ul class="clear">
+          <li><a href="../h_customer_profile/">Profile</a></li> <!--Properties and Profile-->
+          <li><a href="../houses_customerbookings/">Bookings</a></li>
+          <li><a href="../houses_customerlogout/">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  <div id="pageintro" class="hoc clear"> 
+    <article style="text-align: center; ">
+      <h3 class="heading">Welcome {{ username }}</h3><br>
+      <footer>
+        <ul class="nospace inline pushright">  
+          <li><a class="btn inverse" href="../h_customer_search/">Search</a></li>
+        </ul>
+      </footer>
+    </article>
+  </div>
+</div>
+
+<!-- End Top Background Image Wrapper -->
+<br>
+<hr class="style-eight">
+<br>
+
+{% block content %}
+    <!-- All Properties -->
+    <h1 style="text-align: center;"> ALL PROPERTIES</h1>
+    <style>
+      
+    
+        .card {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+            font-family: arial;
+            position: relative;
+            float: left;
+            margin-left: 2%;
+            margin-right: 2%;
+            padding-top: 10px;
+        }
+        
+        .price {
+            color: grey;
+            font-size: 22px;
+        }
+        
+        .card button {
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+
+        .card input[type=submit] {
+            border: none;
+            outline: 0;
+            padding: 12px;
+            color: white;
+            background-color: #000;
+            text-align: center;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+        }
+        
+        .card button:hover {
+            opacity: 0.7;
+        }
+    </style>
+    
+    <br>
+    
+    <br>
+    
+    {% for house in all_houses %}
+    <div style="margin-left: 150px;">
+      <div class="card">
+          <img src="/{{house.image1.url}}" alt="House" style="width:100%">
+          <h1>{{house.type}}</h1>
+          <p class="price">₹ {{house.rent}} <span style="font-size: 60%">/monthly</span></p>
+          <table>
+              <tr>
+                  <td><p><strong>Owner </strong></td>
+                  <td><p> {{house.owner_name}}</p> </td>
+              </tr>
+              <tr>
+                  <td><p><strong>Address </strong></td>
+                  <td><p> {{house.doorno}}, {{house.location}}, {{house.city}}</p></td>
+              </tr>
+              <tr>
+                  <td><p><strong>#Bedrooms </strong></td>
+                  <td><p> {{house.bed_rooms}}</p></td>
+              </tr>
+              
+          </table>
+
+          <form method="post" action="/houses/h_customer_renthouse/">
+            {% csrf_token %}
+            <input type="hidden" name="doorno" value="{{house.doorno}}">
+            <input type="hidden" name="owner_name" value="{{house.owner_name}}">
+            <input type="submit" value="Proceed">
+          </form>
+
+      </div>
+  </div>
+      {% empty %}
+      <h3><strong>No Records Found</sr></h3>
+    {% endfor %}
+
+{% endblock %}
+
+
+
+<!-- JAVASCRIPTS -->
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/js/jquery.backtotop.js"></script>
+<script src="/static/js/jquery.mobilemenu.js"></script>
+
+
+</body>
+</html>
+
